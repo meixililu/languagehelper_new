@@ -15,7 +15,7 @@ import java.lang.Override;
 public class GodReplyFragment_ViewBinding implements Unbinder {
   private GodReplyFragment target;
 
-  private View view7f0802b2;
+  private View view7f0802b3;
 
   private View view7f080066;
 
@@ -26,7 +26,7 @@ public class GodReplyFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.question, "field 'question' and method 'onViewClicked'");
     target.question = Utils.castView(view, R.id.question, "field 'question'", TextView.class);
-    view7f0802b2 = view;
+    view7f0802b3 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -54,8 +54,8 @@ public class GodReplyFragment_ViewBinding implements Unbinder {
     target.question = null;
     target.answer = null;
 
-    view7f0802b2.setOnClickListener(null);
-    view7f0802b2 = null;
+    view7f0802b3.setOnClickListener(null);
+    view7f0802b3 = null;
     view7f080066.setOnClickListener(null);
     view7f080066 = null;
   }

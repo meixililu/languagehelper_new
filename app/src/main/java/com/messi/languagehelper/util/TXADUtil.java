@@ -12,6 +12,7 @@ import com.qq.e.ads.nativ.ADSize;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.splash.SplashAD;
 import com.qq.e.ads.splash.SplashADListener;
+import com.qq.e.comm.managers.GDTADManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +72,7 @@ public class TXADUtil {
             }
             if(sp != null && !TextUtils.isEmpty(idstr)){
                 setADData(sp.getString(KeyUtil.Ad_Ids,idstr));
+                GDTADManager.getInstance().initWith(context.getApplicationContext(), TxAppId);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -111,7 +113,7 @@ public class TXADUtil {
                                      View skipContainer,
                                      SplashADListener listener){
         SplashAD splashAD = new SplashAD(activity, skipContainer,
-                TxAppId, TxAdKp, listener, 3000);
+                TxAdKp, listener, 4000);
         splashAD.fetchAndShowIn(adContainer);
     }
 
@@ -195,7 +197,7 @@ public class TXADUtil {
     public static void showXXLWithId(Context activity,String adId,
                                     NativeExpressAD.NativeExpressADListener listener){
         NativeExpressAD nativeExpressAD = new NativeExpressAD(activity,
-                new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), TxAppId, adId, listener);
+                new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), adId, listener);
         nativeExpressAD.setVideoOption(new VideoOption.Builder()
                 .setAutoPlayPolicy(VideoOption.AutoPlayPolicy.WIFI) // WIFI环境下可以自动播放视频
                 .setAutoPlayMuted(true) // 自动播放时为静音

@@ -14,7 +14,7 @@
         android:layout_centerInParent="true"
         app:lottie_autoPlay="true"
         app:lottie_fileName="check_mark.json"
-        app:lottie_repeatCount="2"
+        app:lottie_repeatCount="1"
         />
 
     <LinearLayout
@@ -40,7 +40,7 @@
             android:layout_marginTop="@dimen/padding_15"
             android:gravity="center"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/big"
+            android:textSize="@dimen/bigger"
             android:textStyle="bold"
             />
     </LinearLayout>
@@ -54,7 +54,7 @@
         android:textStyle="bold"
         android:layout_marginLeft="@dimen/padding_20"
         android:layout_marginRight="@dimen/padding_20"
-        android:layout_marginBottom="@dimen/padding_15"
+        android:layout_marginBottom="@dimen/padding_10"
         android:background="@drawable/border_shadow_green_selecter"
         android:elevation="1dp"
         android:enabled="false"

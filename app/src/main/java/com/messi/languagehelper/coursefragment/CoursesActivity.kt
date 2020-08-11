@@ -79,6 +79,9 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
                 "listen" -> {
                     initFragment(CourseListenFragment())
                 }
+                "comprehension" -> {
+                    initFragment(CourseComprehensionFragment())
+                }
                 "listen_enter" -> {
                     initFragment(CourseListenEnterFragment())
                 }

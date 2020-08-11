@@ -126,6 +126,7 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
         }
         PCMAudioPlayer.getInstance().stopPlay()
         if(mimics.size > position){
+            binding.scoreTv.text = ""
             if (!TextUtils.isEmpty(mimics[position].transalte)){
                 binding.translateTv.text = mimics[position].transalte
             }

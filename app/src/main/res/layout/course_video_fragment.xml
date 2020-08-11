@@ -43,7 +43,7 @@
             android:id="@+id/video_ly"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            android:layout_marginTop="@dimen/padding_10"
+            android:layout_marginTop="@dimen/padding_7"
             android:background="@color/black"
             android:keepScreenOn="true">
             <com.google.android.exoplayer2.ui.PlayerView
@@ -55,6 +55,18 @@
                 app:show_shuffle_button="true"
                 android:background="@color/black" />
         </FrameLayout>
+        <TextView
+            android:id="@+id/c_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingTop="@dimen/padding_7"
+            android:paddingRight="1dp"
+            android:paddingLeft="10dp"
+            android:lineSpacingExtra="2dp"
+            android:lineSpacingMultiplier="1.1"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/big" />
     </LinearLayout>
 
     <TextView
@@ -64,7 +76,7 @@
         android:layout_gravity="bottom"
         android:layout_marginLeft="@dimen/padding_20"
         android:layout_marginRight="@dimen/padding_20"
-        android:layout_marginBottom="@dimen/padding_15"
+        android:layout_marginBottom="@dimen/padding_10"
         android:text="@string/practice_next_level"
         android:background="@drawable/border_shadow_gray_oval_selecter"
         android:elevation="1dp"

@@ -115,6 +115,7 @@ class CourseListenFragment : BaseFragment() {
             binding.checkBtn.text = "Next"
             check()
         } else if (binding.checkBtn.text.toString() == "Next") {
+            MyPlayer.getInstance(context).stop()
             viewModel.next()
         }
     }

@@ -1,52 +1,40 @@
 package com.messi.languagehelper.coursefragment
 
-import android.content.Context
 import android.content.SharedPreferences
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
-import com.google.android.exoplayer2.ExoPlaybackException
-import com.google.android.exoplayer2.PlaybackParameters
-import com.google.android.exoplayer2.Player
-import com.google.android.exoplayer2.SimpleExoPlayer
-import com.google.android.exoplayer2.source.TrackGroupArray
-import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
 import com.messi.languagehelper.bean.CourseData
-import com.messi.languagehelper.databinding.CourseChoiceFragmentBinding
+import com.messi.languagehelper.databinding.CourseComprehensionFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
 
 
-class CourseChoiceFragment : BaseFragment() {
+class CourseComprehensionFragment : BaseFragment() {
 
     lateinit var mSharedPreferences: SharedPreferences
     lateinit var mAVObject: CourseData
-    lateinit var binding: CourseChoiceFragmentBinding
+    lateinit var binding: CourseComprehensionFragmentBinding
     private lateinit var ourSounds: SoundPool
     private var answerRight = 0
     private var answerWrong = 0
-    private var startPosition = 0L
-    private var endPosition = 0L
-    lateinit var player: SimpleExoPlayer
     val viewModel: MyCourseViewModel by activityViewModels()
     var optionBtns = ArrayList<TextView>()
     var userAnswer = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = CourseChoiceFragmentBinding.inflate(inflater)
+        binding = CourseComprehensionFragmentBinding.inflate(inflater)
         initializeSoundPool()
         initViews()
         init()
@@ -54,9 +42,6 @@ class CourseChoiceFragment : BaseFragment() {
     }
 
     private fun initViews() {
-        player = SimpleExoPlayer.Builder(requireContext()).build()
-        player.addListener(listener)
-        binding.playBtn.setOnClickListener { playItem() }
         binding.checkBtn.setOnClickListener { checkOrNext() }
     }
 
@@ -77,18 +62,7 @@ class CourseChoiceFragment : BaseFragment() {
             binding.tips.text = mAVObject.tips
         }
         binding.titleTv.text = mAVObject.title
-
         TextHandlerUtil.handlerText(context, binding.cQuestion, mAVObject.question)
-        if (StringUtils.isEnglish(mAVObject.question) && !mAVObject.question.contains("_")){
-            if(viewModel != null && viewModel.getType().contains("comprehension")){
-                binding.playBtn.visibility = View.GONE
-            }else{
-                binding.playBtn.visibility = View.VISIBLE
-                playItem()
-            }
-        } else {
-            binding.playBtn.visibility = View.GONE
-        }
         if(TextUtils.isEmpty(mAVObject.img)){
             binding.imgItem.visibility = View.GONE
         } else {
@@ -205,96 +179,9 @@ class CourseChoiceFragment : BaseFragment() {
             }
         }
 
-    fun playItem() {
-        binding.playBtn.playAnimation()
-        var mp3Url = mAVObject.media_url
-        var startTime = mAVObject.start_time
-        var endTime = mAVObject.end_time
-        if(TextUtils.isEmpty(mp3Url)){
-            mp3Url = MyPlayer.playUrl + mAVObject.question
-        }
-        if(!TextUtils.isEmpty(startTime)){
-            startPosition = KStringUtils.getTimeMills(startTime)
-            if(!TextUtils.isEmpty(endTime)){
-                endPosition = KStringUtils.getTimeMills(endTime)
-            }
-        }
-        val videoSource = MyPlayer.getMediaSource(mp3Url)
-        player.prepare(videoSource)
-        player.playWhenReady = true
-    }
-
-    private fun stopAtEndPosition() {
-        if(endPosition > 0){
-            Handler().postDelayed({
-                if (player.currentPosition > endPosition) {
-                    binding.playBtn.cancelAnimation()
-                    player.playWhenReady = false
-                }else{
-                    stopAtEndPosition()
-                }
-            }, 10)
-        }
-    }
-
-    val isPlaying: Boolean
-        get() = player.playbackState == Player.STATE_READY && player.playWhenReady
-
     override fun onDestroy() {
         super.onDestroy()
-        if(player != null){
-            player.stop()
-            player.release()
-        }
         optionBtns.clear()
-    }
-
-    var listener = object : Player.EventListener{
-        override fun onTracksChanged(trackGroups: TrackGroupArray, trackSelections: TrackSelectionArray) {
-            LogUtil.DefalutLog("---onTracksChanged---")
-        }
-        override fun onLoadingChanged(isLoading: Boolean) {
-            LogUtil.DefalutLog("---onLoadingChanged---")
-        }
-        override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
-            LogUtil.DefalutLog("---onPlayerStateChanged---")
-            when (playbackState) {
-                Player.STATE_IDLE -> LogUtil.DefalutLog("STATE_IDLE")
-                Player.STATE_BUFFERING -> LogUtil.DefalutLog("STATE_BUFFERING")
-                Player.STATE_READY -> {
-                    if(playWhenReady){
-                        if (startPosition > 0) {
-                            player.seekTo(startPosition)
-                            player.playWhenReady = true
-                            startPosition = 0
-                            stopAtEndPosition()
-                        }
-                    }
-                }
-                Player.STATE_ENDED -> {
-                    binding.playBtn.cancelAnimation()
-                }
-            }
-        }
-
-        override fun onRepeatModeChanged(repeatMode: Int) {
-            LogUtil.DefalutLog("---onRepeatModeChanged---")
-        }
-        override fun onShuffleModeEnabledChanged(shuffleModeEnabled: Boolean) {
-            LogUtil.DefalutLog("---onShuffleModeEnabledChanged---")
-        }
-        override fun onPlayerError(error: ExoPlaybackException) {
-
-        }
-        override fun onPositionDiscontinuity(reason: Int) {
-            LogUtil.DefalutLog("---onPositionDiscontinuity---")
-        }
-        override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters) {
-            LogUtil.DefalutLog("---onPlaybackParametersChanged---")
-        }
-        override fun onSeekProcessed() {
-            LogUtil.DefalutLog("---onSeekProcessed---")
-        }
     }
 
 }

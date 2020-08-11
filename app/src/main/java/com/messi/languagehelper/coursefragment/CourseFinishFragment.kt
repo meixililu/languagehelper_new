@@ -26,6 +26,7 @@ class CourseFinishFragment : BaseFragment() {
     lateinit var binding: CourseFinishFragmentBinding
     private lateinit var ourSounds: SoundPool
     private var answerRight = 0
+    private var isShowCHeckIn = false
     val viewModel: MyCourseViewModel by activityViewModels()
 
 
@@ -38,6 +39,9 @@ class CourseFinishFragment : BaseFragment() {
     }
 
     private fun initViews() {
+        if (viewModel.show_check_in()){
+            isShowCHeckIn = true
+        }
         LiveEventBus.get(KeyUtil.CourseListUpdate).post("")
         binding.checkBtn.setOnClickListener { checkOrNext() }
         setData()
@@ -64,7 +68,11 @@ class CourseFinishFragment : BaseFragment() {
     }
 
     private fun checkOrNext() {
-        viewModel.toScore()
+        if (isShowCHeckIn){
+            viewModel.toCheckIn()
+        }else{
+            viewModel.toScore()
+        }
     }
 
     private fun initializeSoundPool() {

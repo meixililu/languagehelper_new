@@ -116,6 +116,7 @@ class CourseMimicFragment : BaseFragment() {
         }
         PCMAudioPlayer.getInstance().stopPlay()
         if(mimics.size > position){
+            binding.scoreTv.text = ""
             if(TextUtils.isEmpty(mimics[position].img)){
                 binding.playBtn.visibility = View.VISIBLE
                 binding.imgLayout.visibility = View.GONE

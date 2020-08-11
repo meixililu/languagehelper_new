@@ -133,7 +133,7 @@ object KViewUtil {
                                   sumitBtn:TextView,
                                   word: String,
                                   position: Int) {
-        createNewFlexItemTextView(context,autoWrapOptions,autoWrapResult,sumitBtn,word,position,12f,10f)
+        createNewFlexItemTextView(context,autoWrapOptions,autoWrapResult,sumitBtn,word,position,12f,9f)
     }
 
     fun createNewFlexItemTextView(context: Context,
@@ -153,7 +153,7 @@ object KViewUtil {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT)
         ViewCompat.setPaddingRelative(frameLayout, 0, 0, 0, 0)
-        val margin = ScreenUtil.dip2px(context, 8f)
+        val margin = ScreenUtil.dip2px(context, 7f)
         val marginTop = ScreenUtil.dip2px(context, 7f)
         frameParams.setMargins(0, 0, margin, marginTop)
         frameLayout.layoutParams = frameParams
@@ -209,7 +209,7 @@ object KViewUtil {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT)
         ViewCompat.setPaddingRelative(frameLayout, 0, 0, 0, 0)
-        val margin = ScreenUtil.dip2px(context, 8f)
+        val margin = ScreenUtil.dip2px(context, 7f)
         val marginTop = ScreenUtil.dip2px(context, 7f)
         frameParams.setMargins(0, 0, margin, marginTop)
         frameLayout.layoutParams = frameParams

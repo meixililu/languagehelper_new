@@ -7,9 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.messi.languagehelper.coursefragment.CourseListFragment;
+import com.messi.languagehelper.coursefragment.CourseTypeActivity;
 import com.messi.languagehelper.databinding.StudyCategoryFragmentBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.AVAnalytics;
+import com.messi.languagehelper.util.KeyUtil;
 
 public class StudyCategoryFragment extends BaseFragment {
 
@@ -40,7 +42,7 @@ public class StudyCategoryFragment extends BaseFragment {
     private void initFragment(){
         getChildFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragment_container, CourseListFragment.Companion.getInstance(3))
+                .add(R.id.fragment_container, CourseListFragment.Companion.getInstance(3,"", "base"))
                 .commit();
     }
 
@@ -62,7 +64,11 @@ public class StudyCategoryFragment extends BaseFragment {
             AVAnalytics.onEvent(getContext(), "tab3_to_examination");
         });
         binding.collectedLayout.setOnClickListener(view -> {
-            toActivity(CollectedActivity.class,null);
+            Bundle bundle = new Bundle();
+            bundle.putString(KeyUtil.ActionbarTitle, getContext().getString(R.string.title_reading_comprehension));
+            bundle.putString(KeyUtil.Type, "comprehension");
+            bundle.putInt(KeyUtil.Column, 3);
+            toActivity(CourseTypeActivity.class,bundle);
             AVAnalytics.onEvent(getContext(), "tab3_to_examination");
         });
         binding.studySpokenEnglish.setOnClickListener(view -> {

@@ -46,14 +46,17 @@ class CourseCheckInFragment : BaseFragment() {
 
     fun setData(){
         binding.scoreTv.text = "厉害！"
-        if (viewModel.userProfile != null && viewModel.userProfile?.check_in_sum!! > 1){
-            binding.scoreTv.text = "厉害，连续打卡 " + viewModel.userProfile?.check_in_sum!! + " 天！"
-        }
-        binding.levelTv.text = "每天打卡学习，学好英语并不难！"
+//        if (viewModel.userProfile != null && viewModel.userProfile?.check_in_sum!! > 1){
+            binding.scoreTv.text = "厉害，连续打卡 " + viewModel.userProfile?.check_in_sum!! + " 天!"
+            viewModel.userProfile!!.course_score += viewModel.userProfile?.check_in_sum!!
+            binding.levelTv.text = "经验值加 " + viewModel.userProfile?.check_in_sum + " 点"
+//        }else{
+//            binding.levelTv.text = "每天打卡学习，学好英语并不难！"
+//        }
     }
 
     private fun checkOrNext() {
-        requireActivity().finish()
+        viewModel.toScore()
     }
 
 }

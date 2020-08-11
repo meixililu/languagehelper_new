@@ -3,7 +3,6 @@ package com.messi.languagehelper.adapter
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +12,6 @@ import com.messi.languagehelper.R
 import com.messi.languagehelper.box.BoxHelper
 import com.messi.languagehelper.box.CourseList
 import com.messi.languagehelper.coursefragment.CoursesActivity
-import com.messi.languagehelper.coursefragment.ListenCourseActivity
 import com.messi.languagehelper.util.AVOUtil
 import com.messi.languagehelper.util.KeyUtil
 import kotlinx.coroutines.CoroutineScope
@@ -77,17 +75,10 @@ class RcCourseListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     }
 
     private fun onItemClick(mAVObject: CourseList) {
-        val intent = Intent()
-        if (TextUtils.isEmpty(mAVObject.to_activity)){
-            val bundle = Bundle()
-            bundle.putString(KeyUtil.CourseId,mAVObject.course_id)
-            bundle.putParcelable(KeyUtil.ObjectKey,mAVObject)
-            intent.setClass(context,CoursesActivity::class.java)
-            intent.putExtra(KeyUtil.BundleKey,bundle)
-        }else if (mAVObject.to_activity == "ListenCourseActivity"){
-            intent.setClass(context,ListenCourseActivity::class.java)
-            intent.putExtra(KeyUtil.ObjectKey,mAVObject)
-        }
+        val intent = Intent(context,CoursesActivity::class.java)
+        val bundle = Bundle()
+        bundle.putString(KeyUtil.CourseId,mAVObject.course_id)
+        intent.putExtra(KeyUtil.BundleKey,bundle)
         context.startActivity(intent)
         update(mAVObject)
     }

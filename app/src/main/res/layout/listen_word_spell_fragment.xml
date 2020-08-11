@@ -38,7 +38,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:padding="@dimen/padding_10"
+                android:paddingLeft="@dimen/padding_10"
+                android:paddingRight="@dimen/padding_2"
+                android:paddingTop="@dimen/padding_7"
+                android:paddingBottom="@dimen/padding_7"
                 android:textStyle="bold"
                 android:text=""
                 android:textColor="@color/text_black"
@@ -118,7 +121,7 @@
                 android:layout_height="0dp"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="5"
+                android:layout_weight="6"
                 android:animateLayoutChanges="true"
                 android:background="@color/white"
                 android:clipChildren="false"
@@ -133,7 +136,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="75dp"/>
+                android:layout_height="70dp"/>
         </LinearLayout>
     </ScrollView>
 
@@ -142,7 +145,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:paddingBottom="80dp"
+        android:paddingBottom="75dp"
         android:layout_gravity="bottom"
         android:orientation="vertical"
         >
@@ -189,7 +192,7 @@
         android:textStyle="bold"
         android:layout_marginLeft="@dimen/padding_20"
         android:layout_marginRight="@dimen/padding_20"
-        android:layout_marginBottom="@dimen/padding_15"
+        android:layout_marginBottom="@dimen/padding_10"
         android:background="@drawable/border_shadow_green_selecter"
         android:elevation="1dp"
         android:enabled="false"

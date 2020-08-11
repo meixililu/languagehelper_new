@@ -20,13 +20,13 @@ public class ChineseDictionaryFragment_ViewBinding implements Unbinder {
 
   private View view7f08009c;
 
-  private View view7f0802b4;
+  private View view7f0802b5;
 
-  private View view7f0802d6;
+  private View view7f0802d7;
 
   private View view7f0800e6;
 
-  private View view7f08031d;
+  private View view7f08031e;
 
   @UiThread
   public ChineseDictionaryFragment_ViewBinding(final ChineseDictionaryFragment target,
@@ -55,7 +55,7 @@ public class ChineseDictionaryFragment_ViewBinding implements Unbinder {
     target.question_tv = Utils.findRequiredViewAsType(source, R.id.question_tv, "field 'question_tv'", TextView.class);
     view = Utils.findRequiredView(source, R.id.question_tv_cover, "field 'question_tv_cover' and method 'onViewClicked'");
     target.question_tv_cover = Utils.castView(view, R.id.question_tv_cover, "field 'question_tv_cover'", FrameLayout.class);
-    view7f0802b4 = view;
+    view7f0802b5 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -65,7 +65,7 @@ public class ChineseDictionaryFragment_ViewBinding implements Unbinder {
     target.result_tv = Utils.findRequiredViewAsType(source, R.id.result_tv, "field 'result_tv'", TextView.class);
     view = Utils.findRequiredView(source, R.id.result_tv_cover, "field 'result_tv_cover' and method 'onViewClicked'");
     target.result_tv_cover = Utils.castView(view, R.id.result_tv_cover, "field 'result_tv_cover'", FrameLayout.class);
-    view7f0802d6 = view;
+    view7f0802d7 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -83,7 +83,7 @@ public class ChineseDictionaryFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.share_btn, "field 'share_btn' and method 'onViewClicked'");
     target.share_btn = Utils.castView(view, R.id.share_btn, "field 'share_btn'", FrameLayout.class);
-    view7f08031d = view;
+    view7f08031e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -114,13 +114,13 @@ public class ChineseDictionaryFragment_ViewBinding implements Unbinder {
     view7f080098 = null;
     view7f08009c.setOnClickListener(null);
     view7f08009c = null;
-    view7f0802b4.setOnClickListener(null);
-    view7f0802b4 = null;
-    view7f0802d6.setOnClickListener(null);
-    view7f0802d6 = null;
+    view7f0802b5.setOnClickListener(null);
+    view7f0802b5 = null;
+    view7f0802d7.setOnClickListener(null);
+    view7f0802d7 = null;
     view7f0800e6.setOnClickListener(null);
     view7f0800e6 = null;
-    view7f08031d.setOnClickListener(null);
-    view7f08031d = null;
+    view7f08031e.setOnClickListener(null);
+    view7f08031e = null;
   }
 }

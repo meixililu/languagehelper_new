@@ -22,7 +22,7 @@ public class KeyUtil {
 	
 	public static final String APPTheme = "APPTheme";
 
-	public static final String IsShowDailyEnglishUnread = "IsShowDailyEnglishUnread";
+	public static final String Column = "Column";
 
 	public static final String LeanCloudIPAddress = "LeanCloudIPAddress";
 	
@@ -115,8 +115,6 @@ public class KeyUtil {
 	public static final String DailyListenCourseID = "DailyListenCourseID";
 
 	public static final String DailyListenCourseLevel = "DailyListenCourseLevel";
-
-	public static final String Column = "Column";
 
 	public static final String IsHasShowBaiduMessage = "IsHasShowBaiduMessage";
 

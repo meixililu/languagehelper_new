@@ -1,5 +1,6 @@
 package com.messi.languagehelper.coursefragment
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.media.AudioAttributes
 import android.media.AudioManager
@@ -48,15 +49,22 @@ class CourseFinishScoreFragment : BaseFragment() {
     }
 
     private fun initViews() {
-        if (viewModel.show_check_in()){
-            binding.checkBtn.text = "Next"
-        }
-        binding.checkBtn.setOnClickListener { checkOrNext() }
+        binding.checkBtn.setOnClickListener { requireActivity().finish() }
+        binding.oneMoreUnit.setOnClickListener { oneMoreLesson() }
         setScore()
         Handler().postDelayed({
             playSoundPool()
             binding.checkBtn.isEnabled = true
         },600)
+    }
+
+    private fun oneMoreLesson(){
+        val intent = Intent(context,CoursesActivity::class.java)
+        val bundle = Bundle()
+        bundle.putString(KeyUtil.CourseId,viewModel.course_id)
+        intent.putExtra(KeyUtil.BundleKey,bundle)
+        requireActivity().finish()
+        context?.startActivity(intent)
     }
 
     private fun setScore(){
@@ -65,14 +73,7 @@ class CourseFinishScoreFragment : BaseFragment() {
             binding.levelTv.text = "获得 " + viewModel.courseList.size + " 点经验" + "\n" +
                     "经验值达到了 " + viewModel.userProfile!!.course_score + " ！"
         } catch (e: Exception) {
-        }
-    }
-
-    private fun checkOrNext() {
-        if (binding.checkBtn.text.toString() == "Finish") {
-            requireActivity().finish()
-        } else if (binding.checkBtn.text.toString() == "Next") {
-            viewModel.toCheckIn()
+            e.printStackTrace()
         }
     }
 

@@ -23,14 +23,17 @@ class CourseListFragment : BaseFragment() {
     lateinit var binding: CourseListFragmentBinding
     val viewModel: CourseListViewModel by viewModels()
     lateinit var adapter: RcCourseListAdapter
+    var title = ""
     var type = "base"
     var column = 3
 
     companion object {
-        fun getInstance(column: Int): CourseListFragment {
+        fun getInstance(column: Int, title: String, type: String): CourseListFragment {
             val fragment = CourseListFragment()
             val args = Bundle()
             args.putInt(KeyUtil.Column, column)
+            args.putString(KeyUtil.ActionbarTitle, title)
+            args.putString(KeyUtil.Type, type)
             fragment.arguments = args
             return fragment
         }
@@ -45,7 +48,13 @@ class CourseListFragment : BaseFragment() {
     }
 
     private fun init(){
+        title = requireArguments().getString(KeyUtil.ActionbarTitle,"")
+        type = requireArguments().getString(KeyUtil.Type,"")
         column = requireArguments().getInt(KeyUtil.Column,3)
+        if (!title.isNullOrBlank()){
+            binding.myAwesomeToolbar.visibility = View.VISIBLE
+            binding.myAwesomeToolbar.title = title
+        }
         adapter = RcCourseListAdapter()
         viewManager = GridLayoutManager(context,column)
         adapter.setItems(viewModel.datas)

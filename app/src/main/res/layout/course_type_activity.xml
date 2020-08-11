@@ -1,36 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/contentbg"
     android:orientation="vertical">
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_awesome_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
-        android:visibility="gone"
-        android:minHeight="@dimen/actionBar" >
-        <ProgressBar style="@style/CircularProgressWhite"
+        android:minHeight="@dimen/actionBar">
+        <ProgressBar
             android:id="@+id/progressBarCircularIndetermininate"
+            style="@style/CircularProgressWhite"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="right"
             android:visibility="gone" />
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/mswiperefreshlayout"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:tag="container"
+        />
 </LinearLayout>

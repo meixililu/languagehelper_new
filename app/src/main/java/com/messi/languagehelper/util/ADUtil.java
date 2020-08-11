@@ -109,7 +109,6 @@ public class ADUtil {
 		}
 	}
 
-
 	public static void initAdConfig(SharedPreferences sp){
 		String configStr = sp.getString(KeyUtil.AdConfig, "CSJ#GDT#XF#BD#XBKJ");
 		setAdConfig(configStr);
@@ -138,10 +137,12 @@ public class ADUtil {
 				}else if(CSJ.equals(adConfigs[position])){
 					return CSJ;
 				}else if(XF.equals(adConfigs[position])){
-					return GDT;
+					return CSJ;
 				}else if(XBKJ.equals(adConfigs[position])){
 					return XBKJ;
 				}
+			}else {
+				initAdConfig();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

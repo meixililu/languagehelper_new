@@ -110,6 +110,9 @@ class CourseListenEnterFragment : BaseFragment() {
             binding.checkBtn.text = "Next"
             check()
         } else if (binding.checkBtn.text.toString() == "Next") {
+            if(player != null){
+                player.playWhenReady = false
+            }
             viewModel.next()
         }
     }

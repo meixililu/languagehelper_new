@@ -92,6 +92,9 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
             if (!TextUtils.isEmpty(mAVObject.title)){
                 binding.titleTv.text = mAVObject.title
             }
+            if (!TextUtils.isEmpty(mAVObject.question)){
+                binding.cQuestion.text = mAVObject.question
+            }
             binding.checkBtn.setOnClickListener { toNext() }
             viewModel.mRespoVideo.observe(viewLifecycleOwner, Observer {
                 if (it.code == 0){

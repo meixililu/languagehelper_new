@@ -61,6 +61,7 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
     }
 
     private fun isFinish(){
+        if (!::userCourseRecord.isInitialized) return
         if (userCourseRecord.finish && userCourseRecord.user_level_num < userCourseRecord.level_num){
             LogUtil.DefalutLog("isFinish---has add more level")
             userCourseRecord.finish = false
@@ -81,7 +82,7 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun sendProgress(){
-        if(currentCourse != null && courseList.size > 0 &&
+        if(::currentCourse.isInitialized && courseList.size > 0 &&
                 currentCourse.user_result){
             progress.value = courseList.size+1
         }
@@ -116,23 +117,27 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
     }
 
     private fun checkIsFinish(){
-        if (userCourseRecord != null && userProfile != null){
-            if (userCourseRecord.user_unit_num < userCourseRecord.unit_num-1){
-                userCourseRecord.user_unit_num++
-                userProfile!!.course_unit_sum++
-            }else{
-                if (userCourseRecord.user_level_num >= userCourseRecord.level_num){
-                    userCourseRecord.finish = true
+        try {
+            if (::userCourseRecord.isInitialized && userProfile != null){
+                if (userCourseRecord.user_unit_num < userCourseRecord.unit_num-1){
+                    userCourseRecord.user_unit_num++
+                    userProfile!!.course_unit_sum++
                 }else{
-                    userCourseRecord.user_unit_num = 0
-                    userCourseRecord.user_level_num++
-                    userProfile!!.show_level_up = true
-                    userProfile!!.course_level_sum++
+                    if (userCourseRecord.user_level_num >= userCourseRecord.level_num){
+                        userCourseRecord.finish = true
+                    }else{
+                        userCourseRecord.user_unit_num = 0
+                        userCourseRecord.user_level_num++
+                        userProfile!!.show_level_up = true
+                        userProfile!!.course_level_sum++
+                    }
                 }
+                userProfile!!.course_score += courseList.size
+                BoxHelper.update(userCourseRecord)
+                BoxHelper.update(userProfile)
             }
-            userProfile!!.course_score += courseList.size
-            BoxHelper.update(userCourseRecord)
-            BoxHelper.update(userProfile)
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
@@ -209,21 +214,25 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
     }
 
     private fun fromAVObjectToListenCourseData(mAVObject: AVObject){
-        var mItem = CourseData()
-        if(!TextUtils.isEmpty(mAVObject.getString(AVOUtil.CourseDetail.json))){
-            var json = mAVObject.getString(AVOUtil.CourseDetail.json)
-            json = json.replace("，",",")
-            json = json.replace("：",":")
-            json = json.replace("\"","\"")
-            mItem = Gson().fromJson(json,CourseData::class.java)
+        try {
+            var mItem = CourseData()
+            if(!TextUtils.isEmpty(mAVObject.getString(AVOUtil.CourseDetail.json))){
+                var json = mAVObject.getString(AVOUtil.CourseDetail.json)
+                json = json.replace("，",",")
+                json = json.replace("：",":")
+                json = json.replace("\"","\"")
+                mItem = Gson().fromJson(json,CourseData::class.java)
+            }
+            mItem.order = mAVObject.getInt(AVOUtil.CourseDetail.order)
+            mItem.unit = mAVObject.getInt(AVOUtil.CourseDetail.unit)
+            mItem.level = mAVObject.getInt(AVOUtil.CourseDetail.level)
+            if(!TextUtils.isEmpty(mAVObject.getString(AVOUtil.CourseDetail.course_id))){
+                mItem.course_id = mAVObject.getString(AVOUtil.CourseDetail.course_id)
+            }
+            courseList.add(mItem)
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-        mItem.order = mAVObject.getInt(AVOUtil.CourseDetail.order)
-        mItem.unit = mAVObject.getInt(AVOUtil.CourseDetail.unit)
-        mItem.level = mAVObject.getInt(AVOUtil.CourseDetail.level)
-        if(!TextUtils.isEmpty(mAVObject.getString(AVOUtil.CourseDetail.course_id))){
-            mItem.course_id = mAVObject.getString(AVOUtil.CourseDetail.course_id)
-        }
-        courseList.add(mItem)
     }
 
     fun show_check_in(): Boolean{
@@ -261,4 +270,13 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
     fun toCheckIn(){
         mRespoData.postValue("check_in")
     }
+
+    fun getType():String {
+        var type = ""
+        if (::userCourseRecord.isInitialized && !TextUtils.isEmpty(userCourseRecord.type)){
+            type = userCourseRecord.type!!
+        }
+        return type
+    }
+
 }

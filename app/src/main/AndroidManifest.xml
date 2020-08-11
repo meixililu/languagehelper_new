@@ -42,8 +42,8 @@
 
         <uses-library android:name="org.apache.http.legacy"
             android:required="false"/>
-        <uses-library android:name="android.test.runner"
-            android:required="false" />
+<!--        <uses-library android:name="android.test.runner"-->
+<!--            android:required="false" />-->
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -203,7 +203,7 @@
             android:name=".InstallActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".coursefragment.ListenCourseActivity"
+            android:name=".coursefragment.CourseTypeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".TitleActivity"

@@ -43,7 +43,7 @@
             android:id="@+id/img_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_10"
+            android:layout_marginTop="@dimen/padding_7"
             android:visibility="gone"
             fresco:viewAspectRatio="2"
             android:layout_marginLeft="@dimen/padding_10"
@@ -63,7 +63,8 @@
                 android:id="@+id/play_btn"
                 android:layout_width="45dp"
                 android:layout_height="32dp"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="top"
+                android:layout_marginTop="@dimen/padding_7"
                 android:layout_marginLeft="@dimen/padding_10"
                 android:visibility="gone"
                 android:background="@drawable/background_blue_circle"
@@ -75,7 +76,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:padding="@dimen/padding_10"
+                android:paddingLeft="@dimen/padding_10"
+                android:paddingRight="@dimen/padding_2"
+                android:paddingTop="@dimen/padding_7"
+                android:paddingBottom="@dimen/padding_7"
                 android:lineSpacingExtra="2dp"
                 android:lineSpacingMultiplier="1.2"
                 android:text="@string/listen_course_title"
@@ -106,13 +110,13 @@
             android:layout_height="0dp"
             android:layout_centerVertical="true"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="5"
+            android:layout_weight="6"
             android:animateLayoutChanges="true"
             android:background="@color/white"
             android:clipChildren="false"
             android:clipToPadding="false"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
             app:alignContent="flex_start"
             app:alignItems="flex_start"
             app:flexDirection="row"
@@ -121,7 +125,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="75dp"/>
+            android:layout_height="70dp"/>
     </LinearLayout>
 
     <RelativeLayout
@@ -129,7 +133,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:paddingBottom="80dp"
+        android:paddingBottom="75dp"
         android:layout_gravity="bottom"
         android:orientation="vertical"
         >
@@ -176,7 +180,7 @@
         android:textStyle="bold"
         android:layout_marginLeft="@dimen/padding_20"
         android:layout_marginRight="@dimen/padding_20"
-        android:layout_marginBottom="@dimen/padding_15"
+        android:layout_marginBottom="@dimen/padding_10"
         android:background="@drawable/border_shadow_green_selecter"
         android:elevation="1dp"
         android:enabled="false"

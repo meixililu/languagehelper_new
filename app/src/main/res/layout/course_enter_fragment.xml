@@ -30,7 +30,7 @@
             android:visibility="gone"
             android:layout_marginLeft="@dimen/padding_10"
             android:layout_marginRight="@dimen/padding_10"
-            android:layout_marginBottom="@dimen/padding_10"
+            android:layout_marginBottom="@dimen/padding_5"
             android:background="@drawable/bg_btn_course_item"
             />
         <TextView
@@ -48,9 +48,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left"
-            android:padding="@dimen/padding_10"
+            android:paddingLeft="@dimen/padding_10"
+            android:paddingRight="@dimen/padding_10"
+            android:paddingTop="@dimen/padding_7"
+            android:paddingBottom="@dimen/padding_7"
             android:lineSpacingExtra="2dp"
-            android:lineSpacingMultiplier="1.2"
+            android:lineSpacingMultiplier="1.1"
             android:text="@string/listen_course_title"
             android:textColor="@color/text_black"
             android:textSize="@dimen/bigger" />
@@ -62,7 +65,7 @@
             fresco:viewAspectRatio="2"
             android:layout_marginLeft="@dimen/padding_10"
             android:layout_marginRight="@dimen/padding_10"
-            android:layout_marginBottom="@dimen/padding_10"
+            android:layout_marginBottom="@dimen/padding_7"
             fresco:placeholderImageScaleType="fitCenter"
             fresco:actualImageScaleType="fitCenter"
             fresco:placeholderImage="@color/text_backup_bg"
@@ -90,7 +93,7 @@
         </LinearLayout>
         <View
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="70dp"
             />
     </LinearLayout>
     </ScrollView>
@@ -100,7 +103,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:paddingBottom="80dp"
+        android:paddingBottom="75dp"
         android:layout_gravity="bottom"
         android:orientation="vertical"
         >
@@ -147,7 +150,7 @@
         android:textStyle="bold"
         android:layout_marginLeft="@dimen/padding_20"
         android:layout_marginRight="@dimen/padding_20"
-        android:layout_marginBottom="@dimen/padding_15"
+        android:layout_marginBottom="@dimen/padding_10"
         android:background="@drawable/border_shadow_green_selecter"
         android:elevation="1dp"
         android:enabled="false"

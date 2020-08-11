@@ -4,8 +4,14 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:background="@color/white">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
     <LinearLayout
         android:id="@+id/selection_layout"
         android:layout_width="match_parent"
@@ -25,9 +31,10 @@
             android:layout_marginLeft="@dimen/padding_10"
             android:layout_marginRight="@dimen/padding_10"
             android:layout_marginBottom="@dimen/padding_5"
-            android:background="@drawable/bg_btn_course_item"
             android:visibility="gone"
+            android:background="@drawable/bg_btn_course_item"
             />
+
         <TextView
             android:id="@+id/title_tv"
             android:layout_width="match_parent"
@@ -39,40 +46,45 @@
             android:textColor="@color/text_black"
             android:textSize="@dimen/biggerx" />
         <TextView
-            android:id="@+id/question_tv"
+            android:id="@+id/c_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left"
-            android:paddingLeft="@dimen/padding_10"
-            android:paddingRight="@dimen/padding_2"
             android:paddingTop="@dimen/padding_7"
             android:paddingBottom="@dimen/padding_7"
+            android:paddingRight="1dp"
+            android:paddingLeft="10dp"
+            android:lineSpacingExtra="2dp"
+            android:lineSpacingMultiplier="1.1"
             android:text="@string/listen_course_title"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/bigger" />
-        <com.google.android.flexbox.FlexboxLayout
-            android:id="@+id/auto_wrap_options"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:layout_marginTop="@dimen/padding_5"
-            android:animateLayoutChanges="true"
-            android:background="@color/white"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
-            app:alignContent="center"
-            app:alignItems="flex_start"
-            app:flexDirection="row"
-            app:flexWrap="wrap"
-            app:justifyContent="center" />
-        <View
+            android:textSize="@dimen/biggerx" />
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/img_item"
             android:layout_width="match_parent"
-            android:layout_height="70dp"/>
+            android:layout_height="wrap_content"
+            fresco:viewAspectRatio="2"
+            android:layout_marginTop="@dimen/padding_2"
+            android:layout_marginLeft="@dimen/padding_10"
+            android:layout_marginRight="@dimen/padding_10"
+            fresco:placeholderImageScaleType="fitCenter"
+            fresco:actualImageScaleType="fitCenter"
+            fresco:placeholderImage="@color/text_backup_bg"
+            />
+
+        <LinearLayout
+            android:id="@+id/options_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/padding_10"
+            android:paddingRight="@dimen/padding_10"
+            android:paddingTop="@dimen/padding_10"
+            android:paddingBottom="70dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            />
     </LinearLayout>
+    </ScrollView>
 
     <RelativeLayout
         android:id="@+id/result_layout"
