@@ -100,6 +100,9 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
                 "word" -> {
                     initFragment(CourseWordFragment())
                 }
+                "word_en" -> {
+                    initFragment(CourseWordEnFragment())
+                }
                 "mimic" -> {
                     initFragment(CourseMimicFragment())
                 }
