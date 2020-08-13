@@ -14,34 +14,34 @@
          limitations under the License.
     -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="bottom"
     android:layoutDirection="ltr"
     android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <FrameLayout
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:paddingTop="2dp"
-        android:orientation="horizontal">
+        android:background="@drawable/background_player_apha_bg_circle">
 
         <ImageButton android:id="@id/exo_play"
+            android:layout_gravity="center"
             style="@style/ExoMediaButton.Play"/>
 
         <ImageButton android:id="@id/exo_pause"
+            android:layout_gravity="center"
             style="@style/ExoMediaButton.Pause"/>
 
-    </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#00000000"
+        android:background="@drawable/background_player_bottom_apha_bg"
         android:layout_marginTop="2dp"
         android:paddingLeft="@dimen/padding_5"
         android:paddingRight="@dimen/padding_5"
@@ -73,7 +73,6 @@
             android:paddingRight="3dp"
             android:includeFontPadding="false"
             android:textColor="#FFBEBEBE"/>
-
         <FrameLayout
             android:id="@+id/exo_fullscreen_button"
             android:layout_width="38dp"
@@ -88,9 +87,7 @@
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/ic_fullscreen_white"/>
-
         </FrameLayout>
-
     </LinearLayout>
 
     <LinearLayout
@@ -104,9 +101,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_10"
             android:layout_marginBottom="@dimen/padding_10"
-            android:layout_marginLeft="@dimen/padding_5"
-            android:layout_marginRight="@dimen/padding_10"
+            android:layout_marginLeft="@dimen/padding_7"
+            android:layout_marginRight="@dimen/padding_7"
+            android:background="@drawable/background_player_apha_bg_circle"
             app:srcCompat="@drawable/ic_keyboard_arrow_left_white" />
     </LinearLayout>
-
 </RelativeLayout>

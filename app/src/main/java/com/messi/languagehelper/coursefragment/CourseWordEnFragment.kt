@@ -79,28 +79,28 @@ class CourseWordEnFragment : BaseFragment() {
                 when (index) {
                     0 -> {
                         binding.itemImg.setImageURI(item.img)
-                        binding.itemImg.setOnClickListener {
+                        binding.item.setOnClickListener {
                             userAnswer = item.name
                             resetItem(binding.item)
                         }
                     }
                     1 -> {
                         binding.itemImg1.setImageURI(item.img)
-                        binding.itemImg1.setOnClickListener {
+                        binding.item1.setOnClickListener {
                             userAnswer = item.name
                             resetItem(binding.item1)
                         }
                     }
                     2 -> {
                         binding.itemImg2.setImageURI(item.img)
-                        binding.itemImg2.setOnClickListener {
+                        binding.item2.setOnClickListener {
                             userAnswer = item.name
                             resetItem(binding.item2)
                         }
                     }
                     3 -> {
                         binding.itemImg3.setImageURI(item.img)
-                        binding.itemImg3.setOnClickListener {
+                        binding.item3.setOnClickListener {
                             userAnswer = item.name
                             resetItem(binding.item3)
                         }

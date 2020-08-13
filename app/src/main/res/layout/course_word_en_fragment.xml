@@ -43,7 +43,7 @@
                 android:textStyle="bold"
                 android:text="Apple"
                 android:textColor="@color/text_black"
-                android:textSize="@dimen/bigx" />
+                android:textSize="@dimen/bigxx" />
         </LinearLayout>
 
         <LinearLayout
