@@ -26,6 +26,7 @@ import com.messi.languagehelper.bean.CourseData
 import com.messi.languagehelper.databinding.CourseWordFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
+import java.lang.Exception
 
 
 class CourseWordFragment : BaseFragment() {
@@ -130,8 +131,19 @@ class CourseWordFragment : BaseFragment() {
         }
     }
 
+    private fun disableItem(){
+        try {
+            binding.item.isEnabled = false
+            binding.item1.isEnabled = false
+            binding.item2.isEnabled = false
+            binding.item3.isEnabled = false
+        }catch (e: Exception){
+            e.printStackTrace()
+        }
+    }
+
     private fun check() {
-        hideKeyBoard()
+        disableItem()
         if (!TextUtils.isEmpty(userAnswer)) {
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE

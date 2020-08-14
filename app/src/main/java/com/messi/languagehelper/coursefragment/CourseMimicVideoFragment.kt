@@ -83,6 +83,7 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
     }
 
     private fun initDatas() {
+        binding.goOn.isEnabled = false
         if(viewModel.currentCourse.medias != null
                 && viewModel.currentCourse.medias!!.size > position) {
             mAVObject = viewModel.currentCourse
@@ -118,6 +119,9 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
                 }
             })
         }
+        binding.goOn.postDelayed({
+            binding.goOn.isEnabled = true
+        },800)
     }
 
     private fun setListData(){
@@ -173,7 +177,6 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
         if(context != null) {
             binding.recordLayout.visibility = View.GONE
             binding.mimic.text = getString(R.string.start_to_follow)
-            binding.goOn.text = getString(R.string.practice_next_level)
         }
     }
 

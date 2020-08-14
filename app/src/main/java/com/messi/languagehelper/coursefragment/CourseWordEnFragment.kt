@@ -27,6 +27,7 @@ import com.messi.languagehelper.databinding.CourseWordEnFragmentBinding
 import com.messi.languagehelper.databinding.CourseWordFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
+import java.lang.Exception
 
 
 class CourseWordEnFragment : BaseFragment() {
@@ -129,8 +130,19 @@ class CourseWordEnFragment : BaseFragment() {
         }
     }
 
+    private fun disableItem(){
+        try {
+            binding.item.isEnabled = false
+            binding.item1.isEnabled = false
+            binding.item2.isEnabled = false
+            binding.item3.isEnabled = false
+        }catch (e: Exception){
+            e.printStackTrace()
+        }
+    }
+
     private fun check() {
-        hideKeyBoard()
+        disableItem()
         if (!TextUtils.isEmpty(userAnswer)) {
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE
@@ -142,7 +154,7 @@ class CourseWordEnFragment : BaseFragment() {
                 binding.checkSuccess.speed = 2F
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确"
-                binding.chineseTv.visibility = View.GONE
+                KViewUtil.setDataOrHide(binding.chineseTv, mAVObject.translate)
                 binding.resultLayout.setBackgroundResource(R.color.correct_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.correct_text))

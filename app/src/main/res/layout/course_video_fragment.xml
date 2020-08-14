@@ -77,11 +77,13 @@
         android:layout_marginLeft="@dimen/padding_20"
         android:layout_marginRight="@dimen/padding_20"
         android:layout_marginBottom="@dimen/padding_10"
-        android:text="@string/practice_next_level"
-        android:background="@drawable/border_shadow_gray_oval_selecter"
+        android:background="@drawable/border_shadow_green_selecter"
         android:elevation="1dp"
+        android:enabled="false"
         android:gravity="center"
-        android:textColor="@color/text_black"
-        android:textSize="@dimen/big" />
+        android:text="Next"
+        android:textColor="@color/disable_gray_white_selector"
+        android:textSize="@dimen/big"
+        android:textStyle="bold" />
 </FrameLayout>
 

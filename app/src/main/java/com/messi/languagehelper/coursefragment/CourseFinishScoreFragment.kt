@@ -55,7 +55,7 @@ class CourseFinishScoreFragment : BaseFragment() {
         Handler().postDelayed({
             playSoundPool()
             binding.checkBtn.isEnabled = true
-        },600)
+        },800)
     }
 
     private fun oneMoreLesson(){

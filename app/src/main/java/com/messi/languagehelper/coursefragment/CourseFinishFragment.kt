@@ -48,7 +48,7 @@ class CourseFinishFragment : BaseFragment() {
         Handler().postDelayed({
             playSoundPool()
             binding.checkBtn.isEnabled = true
-        },600)
+        },800)
     }
 
     fun setData(){

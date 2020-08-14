@@ -61,6 +61,7 @@ class CourseMimicFragment : BaseFragment() {
     }
 
     private fun setData() {
+        binding.goOn.isEnabled = false
         if(viewModel.currentCourse.medias != null){
             position = 0
             mAVObject = viewModel.currentCourse
@@ -108,6 +109,9 @@ class CourseMimicFragment : BaseFragment() {
                 }
             })
         }
+        binding.goOn.postDelayed({
+            binding.goOn.isEnabled = true
+        },800)
     }
 
     private fun setListData(){
@@ -275,18 +279,17 @@ class CourseMimicFragment : BaseFragment() {
         if(context != null) {
             binding.recordLayout.visibility = View.GONE
             binding.mimic.text = getString(R.string.start_to_follow)
-            binding.goOn.text = getString(R.string.practice_next_level)
         }
     }
 
     private fun relase(){
         endPosition = 0
         isMimic = false
-        if (player != null){
+        if (::player.isInitialized){
             player.stop()
             player.release()
         }
-        if (recognizer != null) {
+        if (::recognizer.isInitialized) {
             recognizer.stopListening()
         }
         PCMAudioPlayer.getInstance().stopPlay()

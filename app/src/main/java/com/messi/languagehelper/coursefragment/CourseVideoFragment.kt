@@ -71,6 +71,7 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
     }
 
     private fun initDatas() {
+        binding.checkBtn.isEnabled = false
         player = SimpleExoPlayer.Builder(requireContext()).build()
         player.addListener(this)
         if(viewModel.currentCourse.medias != null
@@ -104,6 +105,9 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
                 }
             })
         }
+        Handler().postDelayed({
+            binding.checkBtn.isEnabled = true
+        },800)
     }
 
     private fun toNext(){

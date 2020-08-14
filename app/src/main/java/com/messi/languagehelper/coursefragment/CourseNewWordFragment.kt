@@ -72,7 +72,7 @@ class CourseNewWordFragment : BaseFragment() {
         binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
         Handler().postDelayed({
             binding.checkBtn.isEnabled = true
-        },600)
+        },800)
     }
 
     private fun checkOrNext() {

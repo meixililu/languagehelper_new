@@ -27,6 +27,7 @@ import com.messi.languagehelper.bean.CourseData
 import com.messi.languagehelper.databinding.CourseChoiceFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
+import java.lang.Exception
 
 
 class CourseChoiceFragment : BaseFragment() {
@@ -127,8 +128,18 @@ class CourseChoiceFragment : BaseFragment() {
         }
     }
 
+    private fun disableItem(){
+        try {
+            for (item in optionBtns) {
+                item.isEnabled = false
+            }
+        }catch (e: Exception){
+            e.printStackTrace()
+        }
+    }
+
     private fun check() {
-        hideKeyBoard()
+        disableItem()
         val content = StringUtils.replaceSome(result.toLowerCase())
         if (!TextUtils.isEmpty(userAnswer)) {
             binding.checkBtn.text = "Next"
