@@ -16,9 +16,9 @@ import java.lang.Override;
 public class CaricatureSearchActivity_ViewBinding implements Unbinder {
   private CaricatureSearchActivity target;
 
-  private View view7f0802f1;
+  private View view7f0802f6;
 
-  private View view7f0800c2;
+  private View view7f0800c5;
 
   @UiThread
   public CaricatureSearchActivity_ViewBinding(CaricatureSearchActivity target) {
@@ -33,7 +33,7 @@ public class CaricatureSearchActivity_ViewBinding implements Unbinder {
     target.searchEt = Utils.findRequiredViewAsType(source, R.id.search_et, "field 'searchEt'", EditText.class);
     view = Utils.findRequiredView(source, R.id.search_btn, "field 'searchBtn' and method 'onViewClicked'");
     target.searchBtn = Utils.castView(view, R.id.search_btn, "field 'searchBtn'", FrameLayout.class);
-    view7f0802f1 = view;
+    view7f0802f6 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -43,7 +43,7 @@ public class CaricatureSearchActivity_ViewBinding implements Unbinder {
     target.auto_wrap_layout = Utils.findRequiredViewAsType(source, R.id.auto_wrap_layout, "field 'auto_wrap_layout'", FlexboxLayout.class);
     view = Utils.findRequiredView(source, R.id.clear_history, "field 'clearHistory' and method 'onViewClicked'");
     target.clearHistory = Utils.castView(view, R.id.clear_history, "field 'clearHistory'", FrameLayout.class);
-    view7f0800c2 = view;
+    view7f0800c5 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -64,9 +64,9 @@ public class CaricatureSearchActivity_ViewBinding implements Unbinder {
     target.auto_wrap_layout = null;
     target.clearHistory = null;
 
-    view7f0802f1.setOnClickListener(null);
-    view7f0802f1 = null;
-    view7f0800c2.setOnClickListener(null);
-    view7f0800c2 = null;
+    view7f0802f6.setOnClickListener(null);
+    view7f0802f6 = null;
+    view7f0800c5.setOnClickListener(null);
+    view7f0800c5 = null;
   }
 }

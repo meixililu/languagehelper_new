@@ -279,4 +279,8 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
         return type
     }
 
+    override fun onCleared() {
+        super.onCleared()
+    }
+
 }

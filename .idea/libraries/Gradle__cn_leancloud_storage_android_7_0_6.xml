@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: cn.leancloud:storage-android:7.0.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.leancloud/storage-android/7.0.6/f507a1e501052e7df9134e6d484d5ef63476d370/storage-android-7.0.6.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.leancloud/storage-android/7.0.6/e6c23eb1bd654a3a1c33bd4dc6a9fffa3287105/storage-android-7.0.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.leancloud/storage-android/7.0.6/a8a47bc62396be414804f2cdbf14bba59f656a32/storage-android-7.0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

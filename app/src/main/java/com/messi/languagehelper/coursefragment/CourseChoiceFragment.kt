@@ -44,6 +44,7 @@ class CourseChoiceFragment : BaseFragment() {
     val viewModel: MyCourseViewModel by activityViewModels()
     var optionBtns = ArrayList<TextView>()
     var userAnswer = ""
+    var isClickable = true
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -63,6 +64,7 @@ class CourseChoiceFragment : BaseFragment() {
 
     private fun init() {
         if(viewModel.currentCourse != null){
+            isClickable = true
             mAVObject = viewModel.currentCourse
             binding.checkBtn.isEnabled = false
             binding.checkBtn.text = "Check"
@@ -102,9 +104,11 @@ class CourseChoiceFragment : BaseFragment() {
             for (item in mAVObject.options?.shuffled()!!) {
                 var textView = KViewUtil.createOptionItem(requireContext(),item.trim())
                 textView.setOnClickListener {
-                    resetTV(textView)
-                    binding.checkBtn.isEnabled = true
-                    userAnswer = item
+                    if(isClickable){
+                        resetTV(textView)
+                        binding.checkBtn.isEnabled = true
+                        userAnswer = item
+                    }
                 }
                 binding.optionsLayout.addView(textView)
                 optionBtns.add(textView)
@@ -128,18 +132,8 @@ class CourseChoiceFragment : BaseFragment() {
         }
     }
 
-    private fun disableItem(){
-        try {
-            for (item in optionBtns) {
-                item.isEnabled = false
-            }
-        }catch (e: Exception){
-            e.printStackTrace()
-        }
-    }
-
     private fun check() {
-        disableItem()
+        isClickable = false
         val content = StringUtils.replaceSome(result.toLowerCase())
         if (!TextUtils.isEmpty(userAnswer)) {
             binding.checkBtn.text = "Next"

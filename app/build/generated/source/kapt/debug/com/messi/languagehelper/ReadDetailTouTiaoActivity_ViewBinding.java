@@ -21,9 +21,9 @@ import java.lang.Override;
 public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
   private ReadDetailTouTiaoActivity target;
 
-  private View view7f0800cc;
+  private View view7f0800cf;
 
-  private View view7f080290;
+  private View view7f080294;
 
   @UiThread
   public ReadDetailTouTiaoActivity_ViewBinding(ReadDetailTouTiaoActivity target) {
@@ -45,7 +45,7 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.webview_layout = Utils.findRequiredViewAsType(source, R.id.webview_layout, "field 'webview_layout'", FrameLayout.class);
     view = Utils.findRequiredView(source, R.id.collect_btn, "field 'collect_btn' and method 'onClick'");
     target.collect_btn = Utils.castView(view, R.id.collect_btn, "field 'collect_btn'", ImageView.class);
-    view7f0800cc = view;
+    view7f0800cf = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -55,7 +55,7 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.progressbar = Utils.findRequiredViewAsType(source, R.id.progressbar, "field 'progressbar'", ProgressBar.class);
     view = Utils.findRequiredView(source, R.id.play_background_btn, "field 'play_background_btn' and method 'onBackGroundClicked'");
     target.play_background_btn = Utils.castView(view, R.id.play_background_btn, "field 'play_background_btn'", RelativeLayout.class);
-    view7f080290 = view;
+    view7f080294 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -82,9 +82,9 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.progressbar = null;
     target.play_background_btn = null;
 
-    view7f0800cc.setOnClickListener(null);
-    view7f0800cc = null;
-    view7f080290.setOnClickListener(null);
-    view7f080290 = null;
+    view7f0800cf.setOnClickListener(null);
+    view7f0800cf = null;
+    view7f080294.setOnClickListener(null);
+    view7f080294 = null;
   }
 }
