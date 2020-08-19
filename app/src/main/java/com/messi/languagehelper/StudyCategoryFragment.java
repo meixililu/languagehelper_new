@@ -65,7 +65,7 @@ public class StudyCategoryFragment extends BaseFragment {
         });
         binding.collectedLayout.setOnClickListener(view -> {
             Bundle bundle = new Bundle();
-            bundle.putString(KeyUtil.ActionbarTitle, getContext().getString(R.string.title_reading_comprehension));
+            bundle.putString(KeyUtil.ActionbarTitle, getContext().getString(R.string.title_reading));
             bundle.putString(KeyUtil.Type, "comprehension");
             bundle.putInt(KeyUtil.Column, 3);
             toActivity(CourseTypeActivity.class,bundle);

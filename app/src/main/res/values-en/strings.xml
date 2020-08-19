@@ -43,7 +43,6 @@
     <string name="title_study">Read</string>
     <string name="title_leisure">Recreation</string>
     <string name="title_cailing">Ring</string>
-    <string name="title_reading">Reading</string>
     <string name="title_hotel">Hotel</string>
     <string name="title_category">ategory</string>
     <string name="title_moments">Moments</string>
@@ -54,7 +53,7 @@
     <string name="update_info">Better and better</string>
     <string name="selection">Selection</string>
     <string name="title_favorite">Favorite</string>
-    <string name="title_reading_comprehension">Comprehension</string>
+    <string name="title_reading">Reading</string>
     <string name="title_settings">Settings</string>
     <string name="unfollow">Next</string>
     <string name="go_on_follow">Mimic</string>

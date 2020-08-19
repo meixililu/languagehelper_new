@@ -171,7 +171,7 @@
                         </FrameLayout>
 
                         <FrameLayout
-                            android:id="@+id/en_examination_layout"
+                            android:id="@+id/collected_layout"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -197,7 +197,7 @@
                                     android:background="@color/white"
                                     android:gravity="center"
                                     android:lines="1"
-                                    android:text="@string/title_ai_chat"
+                                    android:text="@string/title_reading"
                                     android:textColor="@color/text_black"
                                     android:textSize="@dimen/small" />
                             </LinearLayout>
@@ -347,7 +347,7 @@
                         </FrameLayout>
 
                         <FrameLayout
-                            android:id="@+id/collected_layout"
+                            android:id="@+id/en_examination_layout"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -374,7 +374,7 @@
                                     android:background="@color/white"
                                     android:gravity="center"
                                     android:lines="1"
-                                    android:text="@string/title_reading_comprehension"
+                                    android:text="@string/title_ai_chat"
                                     android:textColor="@color/text_black"
                                     android:textSize="@dimen/small" />
                             </LinearLayout>

@@ -63,7 +63,7 @@ class CourseComprehensionFragment : BaseFragment() {
             binding.tips.visibility = View.VISIBLE
             binding.tips.text = mAVObject.tips
         }
-        binding.titleTv.text = mAVObject.title
+        TextHandlerUtil.handlerText(context, binding.titleTv, mAVObject.title)
         TextHandlerUtil.handlerText(context, binding.cQuestion, mAVObject.question)
         if(TextUtils.isEmpty(mAVObject.img)){
             binding.imgItem.visibility = View.GONE
