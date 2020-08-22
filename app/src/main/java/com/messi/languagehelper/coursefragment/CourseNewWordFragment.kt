@@ -52,7 +52,9 @@ class CourseNewWordFragment : BaseFragment() {
         mAVObject = viewModel.currentCourse
         binding.checkBtn.isEnabled = false
         wordToCharacter()
-        playItem()
+        Handler().postDelayed({
+            playItem()
+        },150)
     }
 
     private fun wordToCharacter() {

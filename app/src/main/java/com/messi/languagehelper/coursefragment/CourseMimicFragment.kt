@@ -247,8 +247,8 @@ class CourseMimicFragment : BaseFragment() {
             }
             binding.playBtn.playAnimation()
             binding.imgPlayBtn.playAnimation()
-            var startTime = mimics[position].start_time
-            var endTime = mimics[position].end_time
+            val startTime = mimics[position].start_time
+            val endTime = mimics[position].end_time
             if(!TextUtils.isEmpty(startTime)){
                 startPosition = KStringUtils.getTimeMills(startTime)
                 if(!TextUtils.isEmpty(endTime)){

@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: ./app/libs/GDTSDK.unionNormal.4.232.1102.aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6ca3e54856b366afe71e42616a9a2a6b/jetified-GDTSDK.unionNormal.4.232.1102/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6ca3e54856b366afe71e42616a9a2a6b/jetified-GDTSDK.unionNormal.4.232.1102/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6ca3e54856b366afe71e42616a9a2a6b/jetified-GDTSDK.unionNormal.4.232.1102/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f8918c4d65aad4d8398042c1a75cfaf0/jetified-GDTSDK.unionNormal.4.232.1102/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f8918c4d65aad4d8398042c1a75cfaf0/jetified-GDTSDK.unionNormal.4.232.1102/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f8918c4d65aad4d8398042c1a75cfaf0/jetified-GDTSDK.unionNormal.4.232.1102/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

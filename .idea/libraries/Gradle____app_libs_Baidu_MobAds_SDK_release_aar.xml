@@ -1,10 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: ./app/libs/Baidu_MobAds_SDK-release.aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/21c34afa741ea071944f621605a684a7/jetified-Baidu_MobAds_SDK-release/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/21c34afa741ea071944f621605a684a7/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/21c34afa741ea071944f621605a684a7/jetified-Baidu_MobAds_SDK-release/jars/classes.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/21c34afa741ea071944f621605a684a7/jetified-Baidu_MobAds_SDK-release/jars/libs/Baidu_MobAds_SDK.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eb43d841703935ddbb257cd92f6875c6/jetified-Baidu_MobAds_SDK-release/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eb43d841703935ddbb257cd92f6875c6/jetified-Baidu_MobAds_SDK-release/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eb43d841703935ddbb257cd92f6875c6/jetified-Baidu_MobAds_SDK-release/jars/libs/Baidu_MobAds_SDK.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eb43d841703935ddbb257cd92f6875c6/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

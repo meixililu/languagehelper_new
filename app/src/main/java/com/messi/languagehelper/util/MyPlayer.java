@@ -168,11 +168,18 @@ public class MyPlayer {
     public void playMediaUrl(String url){
         LogUtil.DefalutLog("---playMediaUrl---"+url);
         if (!TextUtils.isEmpty(url)) {
-            DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(context, LanguagehelperHttpClient.Header);
-            MediaSource mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
-                    .createMediaSource(Uri.parse(url));
-            exoPlayer.prepare(mediaSource);
-            exoPlayer.setPlayWhenReady(true);
+            MediaSource mediaSource = null;
+            if(url.contains("http")){
+                mediaSource = getMediaSource(url);
+            }else {
+                DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(context, LanguagehelperHttpClient.Header);
+                mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
+                        .createMediaSource(Uri.parse(url));
+            }
+            if (mediaSource != null){
+                exoPlayer.prepare(mediaSource);
+                exoPlayer.setPlayWhenReady(true);
+            }
         }
     }
 

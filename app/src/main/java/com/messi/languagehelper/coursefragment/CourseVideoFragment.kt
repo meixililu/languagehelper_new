@@ -20,6 +20,7 @@ import com.google.android.exoplayer2.C
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.source.ClippingMediaSource
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
 import com.messi.languagehelper.bean.CourseData
@@ -32,7 +33,7 @@ import com.messi.languagehelper.util.MyPlayer
 import com.messi.languagehelper.util.ToastUtil
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
 
-class CourseVideoFragment : BaseFragment(), Player.EventListener {
+class CourseVideoFragment : BaseFragment() {
 
     private val STATE_RESUME_WINDOW = "resumeWindow"
     private val STATE_RESUME_POSITION = "resumePosition"
@@ -73,7 +74,6 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
     private fun initDatas() {
         binding.checkBtn.isEnabled = false
         player = SimpleExoPlayer.Builder(requireContext()).build()
-        player.addListener(this)
         if(viewModel.currentCourse.medias != null
                 && viewModel.currentCourse.medias!!.size > position) {
             mAVObject = viewModel.currentCourse
@@ -131,8 +131,13 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
             var endTime = mimics[position].end_time
             if(!TextUtils.isEmpty(startTime)){
                 startPosition = KStringUtils.getTimeMills(startTime)
+                startPosition *= 1000
                 if(!TextUtils.isEmpty(endTime)){
                     endPosition = KStringUtils.getTimeMills(endTime)
+                    endPosition *= 1000
+                }
+                if(endPosition < startPosition){
+                    endPosition = C.TIME_END_OF_SOURCE
                 }
             }
             binding.playerView.player = player
@@ -141,42 +146,15 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
                 binding.playerView.player?.seekTo(mResumeWindow, mResumePosition);
             }
             val mediaSource = MyPlayer.getMediaSource(mediaUrl, voiceUrl, mimics[position].media_url)
-            player.prepare(mediaSource!!)
+            if (startPosition > 0){
+                val clippingSource = ClippingMediaSource(mediaSource, startPosition, endPosition)
+                player.prepare(clippingSource)
+            }else{
+                player.prepare(mediaSource!!)
+            }
             player.playWhenReady = true
         }
     }
-
-    private fun stopAtEndPosition() {
-        if(endPosition > 0){
-            Handler().postDelayed({
-                if (player.currentPosition > endPosition) {
-                    player.playWhenReady = false
-                }else{
-                    stopAtEndPosition()
-                }
-            }, 10)
-        }
-    }
-
-    override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
-        when (playbackState) {
-            Player.STATE_IDLE -> LogUtil.DefalutLog("STATE_IDLE")
-            Player.STATE_BUFFERING -> LogUtil.DefalutLog("STATE_BUFFERING")
-            Player.STATE_READY -> {
-                if(playWhenReady){
-                    if (startPosition > 0) {
-                        player.seekTo(startPosition)
-                        player.playWhenReady = true
-                        startPosition = 0
-                        stopAtEndPosition()
-                    }
-                }
-            }
-            Player.STATE_ENDED -> {}
-        }
-    }
-
-    override fun onPlayerError(error: ExoPlaybackException) {}
 
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putInt(STATE_RESUME_WINDOW, mResumeWindow)
@@ -241,7 +219,7 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
 
     override fun onPause() {
         super.onPause()
-        if (player != null) {
+        if (::player.isInitialized) {
             player.playWhenReady = false
         }
     }
@@ -254,7 +232,7 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
 
     private fun release() {
         status = 1
-        if (player != null) {
+        if (::player.isInitialized) {
             player.playWhenReady = false
             player.release()
         }
