@@ -23,7 +23,7 @@ public class BoxHelper {
 
     public static void init(Context context){
         try {
-            boxStore = MyObjectBox.builder().androidContext(context.getApplicationContext()).build();
+            boxStore = MyObjectBox.builder().androidContext(context).build();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -31,7 +31,7 @@ public class BoxHelper {
 
     public static BoxStore getBoxStore(){
         if(boxStore == null){
-            init(BaseApplication.instance.getApplicationContext());
+            init(BaseApplication.instance);
         }
         return boxStore;
     }

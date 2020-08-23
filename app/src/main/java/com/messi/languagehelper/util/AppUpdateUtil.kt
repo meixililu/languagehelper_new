@@ -21,6 +21,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 object AppUpdateUtil {
+
     @JvmStatic
     fun runCheckUpdateTask(mActivity: Activity) {
         checkUpdate(mActivity.applicationContext)

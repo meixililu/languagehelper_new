@@ -36,6 +36,7 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AppUpdateUtil;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
+import com.messi.languagehelper.util.InitUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.MyPlayer;
@@ -68,6 +69,7 @@ public class YYSMainActivity extends BaseActivity implements FragmentProgressbar
 		try {
 			binding = ContentFrameBinding.inflate(LayoutInflater.from(this));
 			setContentView(binding.getRoot());
+			InitUtil.Companion.init(this);
 			initData();
 			initViews();
 			setupTabIcons();

@@ -43,6 +43,7 @@ import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AppUpdateUtil;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
+import com.messi.languagehelper.util.InitUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
@@ -115,6 +116,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 		try {
 			setContentView(R.layout.activity_yyj_main);
 			ButterKnife.bind(this);
+			InitUtil.Companion.init(this);
 			initData();
 			initFragment();
 			initSDKAndPermission();
