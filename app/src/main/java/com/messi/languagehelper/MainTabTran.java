@@ -102,9 +102,7 @@ public class MainTabTran extends BaseFragment {
         mViewModel.isRefreshTran().observe(getViewLifecycleOwner(), isNeedRefresh -> {
             refresh();
         });
-        mViewModel.getTranRespoData().observe(getViewLifecycleOwner(), mResult -> {
-            showResult(mResult);
-        });
+        mViewModel.getTranRespoData().observe(getViewLifecycleOwner(), this::showResult);
     }
 
     public void loadData(){

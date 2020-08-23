@@ -9,11 +9,11 @@ import permissions.dispatcher.PermissionRequest;
 import permissions.dispatcher.PermissionUtils;
 
 final class MainFragmentOldPermissionsDispatcher {
-  private static final int REQUEST_SHOWORCDIALOG = 10;
+  private static final int REQUEST_SHOWORCDIALOG = 2;
 
   private static final String[] PERMISSION_SHOWORCDIALOG = new String[] {"android.permission.CAMERA"};
 
-  private static final int REQUEST_SHOWRECORD = 11;
+  private static final int REQUEST_SHOWRECORD = 3;
 
   private static final String[] PERMISSION_SHOWRECORD = new String[] {"android.permission.RECORD_AUDIO"};
 

@@ -183,6 +183,7 @@ class TranDictRepository(var context: Context) {
                 }
                 mDictionaryBean.word_name = Setings.q
                 mDictionaryBean.result = sb.substring(0, sb.lastIndexOf("\n"))
+                mData.data = mDictionaryBean
                 dicts.add(0, mDictionaryBean)
                 BoxHelper.insert(mDictionaryBean)
             }
