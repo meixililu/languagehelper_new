@@ -25,7 +25,6 @@ import butterknife.OnClick;
 
 public class LoadingPreActivity extends BaseActivity {
 
-
     @BindView(R.id.privacy_policy)
     TextView privacyPolicy;
     @BindView(R.id.privacy_tv1)
